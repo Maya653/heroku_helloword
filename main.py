@@ -1,12 +1,21 @@
 import fastapi
 import sqlite3
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 
 # Crea la base de datos
 conn = sqlite3.connect("contactos.db")
 c = conn.cursor()
 
 app = fastapi.FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:8000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 class Contacto(BaseModel):
     email : str
@@ -69,4 +78,9 @@ async def eliminar_contacto(email: str):
     c.execute('DELETE FROM contactos WHERE email = ?', (email,))
     conn.commit()
     return {"elemento borrado"}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
 
