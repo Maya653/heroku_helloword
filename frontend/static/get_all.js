@@ -4,9 +4,9 @@ function getAll(){
 	request.send();
 
 	request.onload = (e) => {
-		const responce = request.responseText;
+		const response = request.responseText;
 		const json = JSON.parse(response);
-		console.log("response " + response);
+		console.log("response: " + response);
         console.log("json: " + json);
         console.log("status_code: " + request.status);
 
