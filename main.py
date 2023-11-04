@@ -26,6 +26,10 @@ class Contacto(BaseModel):
 
 # Rutas para las operaciones CRUD
 
+@app.get('/')
+def root():
+    return {"HOLA MUNDO"}
+
 @app.post("/contactos")
 async def crear_contacto(contacto: Contacto):
     """Crea un nuevo contacto."""
