@@ -1,30 +1,36 @@
-function getAll() {
-    var request = new XMLHttpRequest();
-    request.open('GET', "http://localhost:8000/contactos");
-    request.send();
+function getAll(){
+	var request = new XMLHttpRequest;
+	request.open('GET',"http://localhost:8000/contactos");
+	request.send();
 
-    request.onload = (e) => {
-        const response = request.responseText;
-        const contacts = JSON.parse(response);
-        
-        const tbody = document.getElementById("tbody_contactos");
+	request.onload = (e) => {
+		const response = request.responseText;
+		const json = JSON.parse(response);
+		console.log("response: " + response);
+        console.log("json: " + json);
+        console.log("status_code: " + request.status);
 
-        // Iterar sobre los contactos y crear una fila por cada uno
-        contacts.forEach(contact => {
-            var tr = document.createElement("tr");
-            var td_email = document.createElement("td");
-            var td_nombre = document.createElement("td");
-            var td_telefono = document.createElement("td");
+        console.log("Email: " + json[0]["email"]);
+        console.log("Nombre: " + json[0]["nombre"]);
+        console.log("Telefono: " + json[0]["telefono"]);
 
-            td_email.textContent = contact.email;
-            td_nombre.textContent = contact.nombre;
-            td_telefono.textContent = contact.telefono;
+        const tbody_contactos = document.getElementById("tybody_contactos");
 
-            tr.appendChild(td_email);
-            tr.appendChild(td_nombre);
-            tr.appendChild(td_telefono);
+        var tr = document.createElement("tr")
+		var td_email = document.createElement("td");
+		var td_nombre = document.createElement("td");
+		var td_telefono = document.createElement("td")
+	
+		td_email.innerHTML = json[0]["email"];
+		td_nombre.innerHTML = json[0]["nombre"];
+		td_telefono.innerHTML = json[0]["telefono"];
+		
+		
+		tr.appendChild(td_email);
+		tr.appendChild(td_nombre);
+		tr.appendChild(td_telefono);
 
-            tbody.appendChild(tr);
-        });
-    };
+		tbody_contactos.appendChild(tr);
+				
+	};
 };
