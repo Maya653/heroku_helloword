@@ -15,9 +15,11 @@ function getAll(){
         console.log("Telefono: " + json[0]["telefono"]);
 
         const tbody_contactos = document.getElementById("tybody_contactos");
+
         var tr = document.createElement("tr")
 		var td_email = document.createElement("td");
-		var id_nombre = document.createElement("td");
+		var td_nombre = document.createElement("td");
+		var td_telefono = document.createElement("td")
 	
 		td_email.innerHTML = json[0]["email"];
 		td_nombre.innerHTML = json[0]["nombre"];
