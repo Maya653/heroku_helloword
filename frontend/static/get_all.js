@@ -5,12 +5,12 @@ function getAll(){
 
 	request.onload = (e) => {
 		const responce = request.responseText;
-		const json = JSON.parse(responce);
-		console.log("response"+ json.response);
-        console.log("json:" +json);
+		const json = JSON.parse(response);
+		console.log("response " + response);
+        console.log("json: " + json);
         console.log("status_code: " + request.status);
 
-        console.log("Email: " +json[0]["email"]);
+        console.log("Email: " + json[0]["email"]);
         console.log("Nombre: " + json[0]["nombre"]);
         console.log("Telefono: " + json[0]["telefono"]);
 
