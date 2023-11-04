@@ -3,7 +3,7 @@ function getAll(){
 	request.open('GET',"http://localhost:8000/contactos");
 	request.send();
 
-	request.onload = (e) => {
+	request.onload = function() {
 		const response = request.responseText;
 		const json = JSON.parse(response);
 		console.log("response: " + response);
