@@ -16,7 +16,7 @@
 
     <script type="text/javascript">
         function listarContactos() {
-            fetch('http://localhost:8000/contactos') // Hacer una solicitud GET al backend
+            fetch('https://heroku-maya653-a4efb34028f5.herokuapp.com/contactos') // Hacer una solicitud GET al backend
                 .then(response => response.json())
                 .then(data => {
                     const contactosDiv = document.getElementById('resultadoBusqueda');
@@ -33,7 +33,7 @@
 
         function buscarPorEmail() {
             const email = document.getElementById('buscarEmail').value;
-            fetch(`http://localhost:8000/contactos/${email}`)
+            fetch(`https://heroku-maya653-a4efb34028f5.herokuapp.com/contactos/${email}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('No se encontraron resultados para ese email.');
