@@ -13,16 +13,16 @@
     <input type="text" id="buscarEmail">
     <button onclick="buscarPorEmail()">Buscar</button>
 
-    <h2>Crear Nuevo Contacto</h2>
+    <h1>Crear Nuevo Contacto</h1>
     <button onclick="crearContacto()">Crear Contacto</button>
  
 
-    <h2>Actualizar Contacto</h2>
+    <h1>Actualizar Contacto</h1>
     <label for="actualizarEmail">Email del Contacto:</label>
     <input type="text" id="actualizarEmail">
     <button onclick="actualizarContacto()">Actualizar Contacto</button>
  
-    <h2>Eliminar Contacto</h2>
+    <h1>Eliminar Contacto</h1>
     <label for="eliminarEmail">Email del Contacto:</label>
     <input type="text" id="eliminarEmail">
     <button onclick="eliminarContacto()">Eliminar Contacto</button>
@@ -84,10 +84,9 @@
                 .then(data => console.log(data))
                 .catch(error => console.error('Error:', error));
         }
-
-        // Función para actualizar un contacto existente
+        // funcion para actualizar un conracto
         function actualizarContacto() {
-            const email = prompt("Ingrese el email del contacto a actualizar:");
+            const email = document.getElementById('actualizarEmail').value;
             const nombre = prompt("Ingrese el nuevo nombre del contacto:");
             const telefono = prompt("Ingrese el nuevo teléfono del contacto:");
 
@@ -96,12 +95,13 @@
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ nombre, telefono }),
+                body: JSON.stringify({ "nombre": nombre, "telefono": telefono }),
             })
                 .then(response => response.json())
-                .then(data => console.log(data))
+                .then(data => mostrarResultado(data.mensaje))
                 .catch(error => console.error('Error:', error));
         }
+
 
         // Función para eliminar un contacto
         function eliminarContacto() {
