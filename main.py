@@ -1,4 +1,5 @@
-import fastapi
+from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 import sqlite3
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
@@ -7,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 conn = sqlite3.connect("contactos.db")
 c = conn.cursor()
 
-app = fastapi.FastAPI()
+app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
@@ -16,6 +17,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
+
+app.mount("/static", StaticFiles(directory="frontend"), name="static")
 
 class Contacto(BaseModel):
     email : str
