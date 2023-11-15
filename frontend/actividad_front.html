@@ -52,6 +52,54 @@
                 })
                 .catch(error => console.error('Error:', error));
         }
+            // Función para crear un nuevo contacto
+        function crearContacto() {
+            const email = prompt("Ingrese el email del nuevo contacto:");
+            const nombre = prompt("Ingrese el nombre del nuevo contacto:");
+            const telefono = prompt("Ingrese el teléfono del nuevo contacto:");
+
+            fetch("https://heroku-maya653-a4efb34028f5.herokuapp.com/contactos", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, nombre, telefono }),
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Función para actualizar un contacto existente
+        function actualizarContacto() {
+            const email = prompt("Ingrese el email del contacto a actualizar:");
+            const nombre = prompt("Ingrese el nuevo nombre del contacto:");
+            const telefono = prompt("Ingrese el nuevo teléfono del contacto:");
+
+            fetch(`https://heroku-maya653-a4efb34028f5.herokuapp.com/contactos/${email}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ nombre, telefono }),
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Función para eliminar un contacto
+        function eliminarContacto() {
+            const email = prompt("Ingrese el email del contacto a eliminar:");
+
+            fetch(`https://heroku-maya653-a4efb34028f5.herokuapp.com/contactos/${email}`, {
+                method: "DELETE",
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+        }
+
 
     </script>
 </body>
