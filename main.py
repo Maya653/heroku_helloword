@@ -3,6 +3,8 @@ from fastapi.staticfiles import StaticFiles
 import sqlite3
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+
 
 # Crea la base de datos
 conn = sqlite3.connect("contactos.db")
@@ -61,10 +63,12 @@ async def obtener_contacto(email: str):
     # Consulta el contacto por su email
     c = conn.cursor()
     c.execute('SELECT * FROM contactos WHERE email = ?', (email,))
-    contacto = None
-    for row in c:
-        contacto = {"email":row[0], "nombre":row[1], "telefono":row[2]}
-    return contacto
+    row = c.fetchone()
+    if row:
+        contacto = {"email": row[0], "nombre": row[1], "telefono": row[2]}
+        return JSONResponse(content=contacto)
+    else:
+        return JSONResponse(content={}, status_code=404)
 
 @app.put("/contactos/{email}")
 async def actualizar_contacto(email: str, contacto: Contacto):

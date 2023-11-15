@@ -34,7 +34,12 @@
         function buscarPorEmail() {
             const email = document.getElementById('buscarEmail').value;
             fetch(`http://localhost:8000/contactos/${email}`)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('No se encontraron resultados para ese email.');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     const contactosDiv = document.getElementById('resultadoBusqueda');
                     contactosDiv.innerHTML = '<h2>Resultado de búsqueda:</h2>';
@@ -47,6 +52,7 @@
                 })
                 .catch(error => console.error('Error:', error));
         }
+
     </script>
 </body>
 </html>
