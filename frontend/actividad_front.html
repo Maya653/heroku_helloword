@@ -4,6 +4,7 @@
     <title>Actividad_Frontend_botton</title>
 </head>
 <body>
+    
     <h1>Lista de contactos</h1>
     <button onclick="listarContactos()">Listar</button>
 
@@ -11,6 +12,20 @@
     <label for="buscarEmail">Email</label>
     <input type="text" id="buscarEmail">
     <button onclick="buscarPorEmail()">Buscar</button>
+
+    <h2>Crear Nuevo Contacto</h2>
+    <button onclick="crearContacto()">Crear Contacto</button>
+ 
+
+    <h2>Actualizar Contacto</h2>
+    <label for="actualizarEmail">Email del Contacto:</label>
+    <input type="text" id="actualizarEmail">
+    <button onclick="actualizarContacto()">Actualizar Contacto</button>
+ 
+    <h2>Eliminar Contacto</h2>
+    <label for="eliminarEmail">Email del Contacto:</label>
+    <input type="text" id="eliminarEmail">
+    <button onclick="eliminarContacto()">Eliminar Contacto</button>
 
     <div id="resultadoBusqueda"></div>
 
