@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad_Frontend_botton</title>
+</head>
+<body>
+    <div>
+        <h1>Lista de contactos</h1>
+        <button onclick="listarContactos()">Listar</button>
+    </div>
+
+    <div>
+        <h1>Buscar contacto por Email</h1>
+        <label for="buscarEmail">Email</label>
+        <input type="text" id="buscarEmail">
+        <button onclick="buscarPorEmail()">Buscar</button>
+    </div>
+
+    <div>
+        <h1>Crear Nuevo Contacto</h1>
+        <button onclick="crearContacto()">Crear Contacto</button>
+    </div>
+
+    <div>
+        <h1>Actualizar Contacto</h1>
+        <label for="actualizarEmail">Email del Contacto:</label>
+        <input type="text" id="actualizarEmail">
+        
+        <label for="nuevoNombre">Nuevo Nombre:</label>
+        <input type="text" id="nuevoNombre">
+        
+        <label for="nuevoTelefono">Nuevo Teléfono:</label>
+        <input type="text" id="nuevoTelefono">
+        
+        <button onclick="actualizarContacto()">Actualizar Contacto</button>
+    </div>
+
+    <div>
+        <h1>Eliminar Contacto</h1>
+        <label for="eliminarEmail">Email del Contacto:</label>
+        <input type="text" id="eliminarEmail">
+        <button onclick="eliminarContacto()">Eliminar Contacto</button>
+    </div>
+
+    <div id="resultadoBusqueda"></div>
+
+    <script type="text/javascript" src="../static/actualizar.js"></script>
+    <script type="text/javascript" src="../static/buscar.js"></script>
+    <script type="text/javascript" src="../static/crear.js"></script>
+    <script type="text/javascript" src="../static/eliminar.js"></script>
+    <script type="text/javascript" src="../static/listar.js"></script>
+</body>
+</html>
