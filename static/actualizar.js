@@ -4,7 +4,7 @@ async function actualizarContacto() {
         const nuevoNombre = document.getElementById('nuevoNombre').value;
         const nuevoTelefono = document.getElementById('nuevoTelefono').value;
 
-        const response = await fetch(`http://localhost:8000/contactos/${email}`, {
+        const response = await fetch(`https://contactos-backen-b4d88f351253.herokuapp.com/contactos/${email}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

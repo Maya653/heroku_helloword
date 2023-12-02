@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:8000/contactos";
+const apiUrl = "https://contactos-backen-b4d88f351253.herokuapp.com/contactos";
 
 async function listarContactos() {
     try {

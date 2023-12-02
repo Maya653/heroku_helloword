@@ -4,7 +4,7 @@ async function crearContacto() {
         const nombre = prompt("Ingrese el nombre del nuevo contacto:");
         const telefono = prompt("Ingrese el teléfono del nuevo contacto:");
 
-        const response = await fetch('http://localhost:8000/contactos', {
+        const response = await fetch('https://contactos-backen-b4d88f351253.herokuapp.com/contactos', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

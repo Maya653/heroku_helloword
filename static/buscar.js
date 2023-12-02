@@ -17,7 +17,7 @@ async function buscarPorEmail() {
             return;
         }
 
-        const response = await fetch(`http://localhost:8000/contactos/${email}`);
+        const response = await fetch(`https://contactos-backen-b4d88f351253.herokuapp.com/contactos/${email}`);
 
         if (!response.ok) {
             throw new Error('No se encontraron resultados para ese email.');
