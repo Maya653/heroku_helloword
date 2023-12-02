@@ -1,6 +1,22 @@
 async function buscarPorEmail() {
     try {
-        const email = document.getElementById('buscarEmail').value;
+        const emailInput = document.getElementById('buscarEmail');
+        const contactosDiv = document.getElementById('resultadoBusqueda');
+
+        // Verificar si el elemento 'buscarEmail' existe
+        if (!emailInput) {
+            console.error('Elemento con ID "buscarEmail" no encontrado.');
+            return;
+        }
+
+        const email = emailInput.value;
+
+        // Verificar si el email no está vacío
+        if (!email.trim()) {
+            console.error('Por favor, ingrese un email antes de buscar.');
+            return;
+        }
+
         const response = await fetch(`http://localhost:8000/contactos/${email}`);
 
         if (!response.ok) {
@@ -8,8 +24,11 @@ async function buscarPorEmail() {
         }
 
         const data = await response.json();
-        const contactosDiv = document.getElementById('resultadoBusqueda');
-        contactosDiv.innerHTML = '<h2>Resultado de búsqueda:</h2>';
+
+        // Limpiar el contenido existente antes de agregar nuevos elementos
+        contactosDiv.innerHTML = '';
+
+        contactosDiv.innerHTML += '<h2>Resultado de búsqueda:</h2>';
 
         if (data.email) {
             contactosDiv.innerHTML += `<p>Nombre: ${data.nombre}<br>Email: ${data.email}<br>Teléfono: ${data.telefono}</p>`;

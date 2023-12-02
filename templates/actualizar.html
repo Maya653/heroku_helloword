@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Elemento</title>
+    <script src="../static/actualizar.js"></script>
+</head>
+<body>
+    <h1>Actualizar Elemento</h1>
+    
+    <label for="actualizarEmail">Email del Contacto:</label>
+    <input type="text" id="actualizarEmail" required>
+    
+    <label for="nuevoNombre">Nuevo Nombre:</label>
+    <input type="text" id="nuevoNombre" required>
+    
+    <label for="nuevoTelefono">Nuevo Teléfono:</label>
+    <input type="text" id="nuevoTelefono" required>
+    
+    <button id="actualizarButton">Actualizar Contacto</button>
+
+    <!-- Área para mostrar mensajes de error -->
+    <div id="errorContainer"></div>
+
+    <script>
+        // Asignar evento de actualización usando JavaScript
+        document.getElementById('actualizarButton').addEventListener('click', function() {
+            actualizarContacto();
+        });
+    </script>
+</body>
+</html>

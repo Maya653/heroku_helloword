@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Elemento</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Incluir tu hoja de estilos principal si la tienes -->
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #resultadoBusqueda {
+            margin-top: 20px;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin: 0;
+            font-size: 16px;
+        }
+    </style>
+
+    <script src="../static/crear.js"></script>
+</head>
+<body>
+    <h1>Crear Elemento</h1>
+    
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre">
+    
+    <label for="telefono">Teléfono:</label>
+    <input type="text" id="telefono">
+    
+    <label for="email">Email:</label>
+    <input type="text" id="email">
+    
+    <button onclick="crearContacto()">Crear Contacto</button>
+    
+    <div id="resultadoBusqueda"></div>
+</body>
+</html>
