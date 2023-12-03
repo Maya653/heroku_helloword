@@ -2,8 +2,12 @@ import os
 from flask import Flask, render_template
 from flask_cors import CORS  # Importa el módulo CORS desde flask_cors
 
+
 app = Flask(__name__)
-CORS(app)  # Habilita CORS para toda la aplicación
+CORS(app)
+
+CORS(app, resources={r"/api/*": {"origins": "https://contactos-frontend-6d58a4eb9f51.herokuapp.com"}})
+
 
 @app.route("/",  methods=["GET"])
 def index():
