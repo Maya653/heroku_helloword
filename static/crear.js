@@ -20,7 +20,6 @@ async function crearContacto() {
         // Mostrar el resultado en el elemento con id 'resultadoBusqueda'
         contactosDiv.innerHTML = `
             <p>Resultado de la creación:</p>
-            <p>ID: ${data.id}</p>
             <p>Email: ${data.email}</p>
             <p>Nombre: ${data.nombre}</p>
             <p>Teléfono: ${data.telefono}</p>

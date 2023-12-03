@@ -3,6 +3,7 @@ async function actualizarContacto() {
         const email = document.getElementById('actualizarEmail').value;
         const nuevoNombre = document.getElementById('nuevoNombre').value;
         const nuevoTelefono = document.getElementById('nuevoTelefono').value;
+        const contactosDiv = document.getElementById('resultadoBusqueda');
 
         const response = await fetch(`https://contactos-backen-b4d88f351253.herokuapp.com/contactos/${email}`, {
             method: "PUT",
@@ -14,7 +15,16 @@ async function actualizarContacto() {
 
         if (response.ok) {  
             const data = await response.json();
-            // Puedes mostrar el resultado directamente o utilizar tu función mostrarResultado
+
+            // Actualizar el contenido del elemento con id 'resultadoBusqueda'
+            contactosDiv.innerHTML = `
+                <p>Resultado de la actualización:</p>
+                <p>ID: ${data.id}</p>
+                <p>Email: ${data.email}</p>
+                <p>Nombre: ${data.nombre}</p>
+                <p>Teléfono: ${data.telefono}</p>
+            `;
+
             console.log(data.mensaje);
         } else {
             // Puedes manejar el error aquí o utilizar tu función mostrarResultado
