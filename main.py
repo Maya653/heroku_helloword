@@ -3,6 +3,9 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+@app.route("/",  methods=["GET"])
+def index():
+    return render_template('index.html')
 @app.route("/listar", methods=["GET"])
 def listar():
     # Lógica para listar contactos
@@ -10,7 +13,7 @@ def listar():
 
 @app.route("/actualizar", methods=["GET"])
 def actualizar():
-    # Lógica para actualizar contactos
+    # Lógica para actualizar contactoss
     return render_template('actualizar.html')
 
 @app.route("/eliminar", methods=["GET"])
@@ -27,5 +30,7 @@ def buscar():
 def crear():
     # Lógica para crear contactos
     return render_template('crear.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
