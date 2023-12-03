@@ -22,7 +22,7 @@ def actualizar():
     # Lógica para actualizar contactoss
     return render_template('actualizar.html')
 
-@app.route("/eliminar", methods=["DELETE"])
+@app.route("/eliminar", methods=["GET", "DELETE"])
 def eliminar():
     # Lógica para eliminar contactos
     return render_template('eliminar.html')
