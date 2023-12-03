@@ -1,11 +1,12 @@
-// static/MainComponent.js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import MainComponent from './static/MainComponent'; // Ajusta según la estructura de tu proyecto
+// index.js
+const express = require('express');
+const path = require('path');
+const app = express();
 
-ReactDOM.render(
-  <React.StrictMode>
-    <MainComponent />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// Configuración de express y rutas aquí
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en el puerto ${PORT}`);
+});
