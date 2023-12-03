@@ -1,4 +1,7 @@
-// Función asincrónica para eliminar un contacto
+function mostrarMensaje(mensaje) {
+    alert(mensaje); 
+}
+
 async function eliminarContacto() {
     try {
         const email = document.getElementById('eliminarEmail').value;
