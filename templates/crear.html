@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Crear Elemento</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Incluir tu hoja de estilos principal si la tienes -->
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,8 +51,8 @@
             font-size: 16px;
         }
     </style>
+<script src="{{ url_for('static', filename='crear.js') }}"></script>
 
-    <script src="../static/crear.js"></script>
 </head>
 <body>
     <h1>Crear Elemento</h1>

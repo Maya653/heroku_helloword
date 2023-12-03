@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Buscar Elemento</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Incluir tu hoja de estilos principal si la tienes -->
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,7 +52,7 @@
         }
     </style>
 
-    <script src="../static/buscar.js"></script>
+<script src="{{ url_for('static', filename='buscar.js') }}"></script>
 </head>
 <body>
     <h1>Buscar Elemento</h1>
