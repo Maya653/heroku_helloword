@@ -28,3 +28,6 @@ async function crearContacto() {
         console.error('Error:', error);
     }
 }
+function regresar() {
+    window.history.back();
+}

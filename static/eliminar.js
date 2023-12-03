@@ -36,3 +36,6 @@ async function eliminarContacto() {
         console.error('Error:', error);
     }
 }
+function regresar() {
+    window.history.back();
+}
