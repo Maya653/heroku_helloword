@@ -17,12 +17,12 @@ def listar():
     # Lógica para listar contactos
     return render_template('listar.html')
 
-@app.route("/actualizar", methods=["GET"])
+@app.route("/actualizar", methods=["GET", "PUT"])
 def actualizar():
     # Lógica para actualizar contactoss
     return render_template('actualizar.html')
 
-@app.route("/eliminar", methods=["GET"])
+@app.route("/eliminar", methods=["DELETE"])
 def eliminar():
     # Lógica para eliminar contactos
     return render_template('eliminar.html')
@@ -32,7 +32,7 @@ def buscar():
     # Lógica para buscar contactos
     return render_template('buscar.html')
 
-@app.route("/crear", methods=["GET"])
+@app.route("/crear", methods=["GET", "POST"])
 def crear():
     # Lógica para crear contactos
     return render_template('crear.html')
