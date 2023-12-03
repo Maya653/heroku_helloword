@@ -1,7 +1,3 @@
-function mostrarMensaje(mensaje) {
-    alert(mensaje); // Puedes personalizar esto según tu interfaz
-}
-
 // Función asincrónica para eliminar un contacto
 async function eliminarContacto() {
     try {
@@ -12,7 +8,15 @@ async function eliminarContacto() {
             method: "DELETE",
         });
 
-        if (response.status === 204) {
+        if (response.status === 200) {
+            // Éxito al eliminar el contacto (aunque el código sea 200)
+            const data = await response.json();
+            console.log('Respuesta del servidor:', data);
+            mostrarMensaje('Contacto eliminado exitosamente.');
+
+            // Limpiar el contenido del elemento con id 'resultadoBusqueda'
+            contactosDiv.innerHTML = '';
+        } else if (response.status === 204) {
             // Éxito al eliminar el contacto
             mostrarMensaje('Contacto eliminado exitosamente.');
 
@@ -29,4 +33,3 @@ async function eliminarContacto() {
         console.error('Error:', error);
     }
 }
-
