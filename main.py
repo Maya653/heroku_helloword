@@ -1,7 +1,9 @@
-import os 
+import os
 from flask import Flask, render_template
+from flask_cors import CORS  # Importa el módulo CORS desde flask_cors
 
 app = Flask(__name__)
+CORS(app)  # Habilita CORS para toda la aplicación
 
 @app.route("/",  methods=["GET"])
 def index():
