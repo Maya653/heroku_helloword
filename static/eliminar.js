@@ -1,4 +1,3 @@
-// Función para mostrar mensajes en la interfaz de usuario
 function mostrarMensaje(mensaje) {
     alert(mensaje); // Puedes personalizar esto según tu interfaz
 }
@@ -20,7 +19,10 @@ async function eliminarContacto() {
             // Limpiar el contenido del elemento con id 'resultadoBusqueda'
             contactosDiv.innerHTML = '';
         } else {
-            // Error al intentar eliminar el contacto
+            // Otros estados
+            const data = await response.json();
+            console.error('Error al intentar eliminar el contacto:', response.status, response.statusText);
+            console.error('Detalles del error:', data);
             mostrarMensaje('Error al intentar eliminar el contacto.');
         }
     } catch (error) {
