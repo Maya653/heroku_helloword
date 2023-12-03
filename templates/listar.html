@@ -48,13 +48,16 @@
     </style>
 <script src="{{ url_for('static', filename='listar.js') }}"></script>
 
-<button onclick="regresar()">Regresar</button>
 
 </head>
 <body>
     <h1>Listar Elementos </h1>
 
-    <button onclick="listarContactos()">Listar</button>
+    <div>
+        <button onclick="regresar()">Regresar</button>
+        <button onclick="listarContactos()">Listar</button>
+    </div>
+    
     <div id="resultadoBusqueda"></div>
 </body>
 </html>
