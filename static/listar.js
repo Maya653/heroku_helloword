@@ -1,3 +1,6 @@
+function regresar() {
+    window.history.back();
+}
 // Define la URL del API
 const apiUrl = "https://contactos-backen-b4d88f351253.herokuapp.com/contactos";
 
