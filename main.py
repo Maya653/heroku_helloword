@@ -4,10 +4,26 @@ from flask_cors import CORS  # Importa el módulo CORS desde flask_cors
 
 
 app = Flask(__name__)
+app.secret_key = ""  # Cambia esto por una clave secreta más segura
 
 CORS(app, resources={r"/api/*": {"origins": ["https://contactos-frontend-6d58a4eb9f51.herokuapp.com", "https://contactos-backen-b4d88f351253.herokuapp.com"] }})
 
 
+def login():
+    if request.method == "POST":
+        # Lógica para validar el formulario de login
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        # Validar las credenciales (puedes usar tu lógica de autenticación aquí)
+        # Por ahora, solo verificaré que haya un username y un password no vacíos
+        if username and password:
+            # Almacena el username en la sesión (simulando un usuario autenticado)
+            session["username"] = username
+            return redirect(url_for("index"))
+
+    # Renderiza la página de login
+    return render_template("login.html")
 @app.route("/",  methods=["GET"])
 def index():
     return render_template('index.html')
