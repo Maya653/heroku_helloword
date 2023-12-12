@@ -1,12 +1,16 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for, session
 from flask_cors import CORS  # Importa el módulo CORS desde flask_cors
 
 
 app = Flask(__name__)
-app.secret_key = ""  # Cambia esto por una clave secreta más segura
+app.secret_key = "BHzIsCEJ3Sww9zQTVFp5mgRkKlXOdnmgc8jXF4Yh24s"  # Cambia esto por una clave secreta más segura
 
 CORS(app, resources={r"/api/*": {"origins": ["https://contactos-frontend-6d58a4eb9f51.herokuapp.com", "https://contactos-backen-b4d88f351253.herokuapp.com"] }})
+
+@app.route("/login", methods=["GET"])
+def login_page():
+    return render_template('login.html')
 
 
 def login():
@@ -21,6 +25,8 @@ def login():
             # Almacena el username en la sesión (simulando un usuario autenticado)
             session["username"] = username
             return redirect(url_for("index"))
+        return render_template("login.html")    
+
 
     # Renderiza la página de login
     return render_template("login.html")
