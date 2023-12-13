@@ -37,9 +37,12 @@ async function login() {
         }
     } catch (error) {
         console.error('Error:', error);
+        loginErrorDiv.textContent = 'Ocurrió un error inesperado. Por favor, intenta nuevamente.';
     }
 }
 
 function regresar() {
+    document.getElementById('username').value = '';
+    document.getElementById('password').value = '';
     window.history.back();
 }
